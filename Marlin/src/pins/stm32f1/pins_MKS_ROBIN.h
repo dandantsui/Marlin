@@ -40,18 +40,15 @@
 //
 #define DISABLE_JTAG
 
-//
-// Enable SD EEPROM to prevent infinite boot loop
-//
 #define SDCARD_EEPROM_EMULATION
 
 //
 // Servos
 //
-#define SERVO0_PIN                          PC3   // XS1 - 5
-#define SERVO1_PIN                          PA1   // XS1 - 6
-#define SERVO2_PIN                          PF9   // XS2 - 5
-#define SERVO3_PIN                          PF8   // XS2 - 6
+//#define SERVO0_PIN                          PC3   // XS1 - 5
+//#define SERVO1_PIN                          PA1   // XS1 - 6
+//#define SERVO2_PIN                          PF9   // XS2 - 5
+//#define SERVO3_PIN                          PF8   // XS2 - 6
 
 //
 // Limit Switches
@@ -134,7 +131,7 @@
 
 #define LCD_USE_DMA_FSMC                          // Use DMA transfers to send data to the TFT
 #define FSMC_DMA_DEV                        DMA2
-#define FSMC_DMA_CHANNEL                 DMA_CH5
+#define FSMC_DMA_CHANNEL                    DMA_CH5
 
 #if ENABLED(TOUCH_BUTTONS)
   #define TOUCH_CS_PIN                      PB1   // SPI2_NSS
@@ -183,14 +180,15 @@
   //#define E4_HARDWARE_SERIAL Serial1
 
   // Unused servo pins may be repurposed with SoftwareSerialM
-  //#define X_SERIAL_TX_PIN                 PF8   // SERVO3_PIN -- XS2 - 6
-  //#define Y_SERIAL_TX_PIN                 PF9   // SERVO2_PIN -- XS2 - 5
-  //#define Z_SERIAL_TX_PIN                 PA1   // SERVO1_PIN -- XS1 - 6
-  //#define E0_SERIAL_TX_PIN                PC3   // SERVO0_PIN -- XS1 - 5
-  //#define X_SERIAL_RX_PIN      X_SERIAL_TX_PIN
-  //#define Y_SERIAL_RX_PIN      Y_SERIAL_TX_PIN
-  //#define Z_SERIAL_RX_PIN      Z_SERIAL_TX_PIN
-  //#define E0_SERIAL_RX_PIN    E0_SERIAL_TX_PIN
+  #define X_SERIAL_TX_PIN      PF8               // SERVO3_PIN  XS2 - 6
+  #define Y_SERIAL_TX_PIN      X_SERIAL_TX_PIN   // SERVO2_PIN  XS2 - 5
+  #define Z_SERIAL_TX_PIN      X_SERIAL_TX_PIN   // SERVO1_PIN  XS1 - 6
+  #define E0_SERIAL_TX_PIN     X_SERIAL_TX_PIN   // SERVO0_PIN  XS1 - 5
+  
+  #define X_SERIAL_RX_PIN      X_SERIAL_TX_PIN
+  #define Y_SERIAL_RX_PIN      Y_SERIAL_TX_PIN
+  #define Z_SERIAL_RX_PIN      Z_SERIAL_TX_PIN
+  #define E0_SERIAL_RX_PIN     E0_SERIAL_TX_PIN
 
   // Reduce baud rate for software serial reliability
   #if HAS_TMC_SW_SERIAL
