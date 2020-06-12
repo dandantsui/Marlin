@@ -43,6 +43,11 @@
 #define SDCARD_EEPROM_EMULATION
 
 //
+// Enable SD EEPROM to prevent infinite boot loop
+//
+#define SDCARD_EEPROM_EMULATION
+
+//
 // Servos
 //
 //#define SERVO0_PIN                          PC3   // XS1 - 5
@@ -180,6 +185,7 @@
   //#define E4_HARDWARE_SERIAL Serial1
 
   // Unused servo pins may be repurposed with SoftwareSerialM
+
   #define X_SERIAL_TX_PIN      PF8               // SERVO3_PIN  XS2 - 6
   #define Y_SERIAL_TX_PIN      X_SERIAL_TX_PIN   // SERVO2_PIN  XS2 - 5
   #define Z_SERIAL_TX_PIN      X_SERIAL_TX_PIN   // SERVO1_PIN  XS1 - 6
@@ -189,6 +195,7 @@
   #define Y_SERIAL_RX_PIN      Y_SERIAL_TX_PIN
   #define Z_SERIAL_RX_PIN      Z_SERIAL_TX_PIN
   #define E0_SERIAL_RX_PIN     E0_SERIAL_TX_PIN
+
 
   // Reduce baud rate for software serial reliability
   #if HAS_TMC_SW_SERIAL
